@@ -2,6 +2,18 @@ const router = require('express').Router();
 const { Project } = require('../../models');
 const withAuth = require("../utils/auth");
 
+router.get("/project/:id", async (req, res)=>{
+    try {
+      const projectDetails = await findOne({
+        where: {id: req.params.id}
+      })
+    projectDetails.get({plain:true})
+    res.render("details", {projectDetails})
+    } catch (err) {
+      res.status(500).json(err)
+    }
+});
+
 router.post('/', withAuth, async (req, res) => {
   try {
     const newProject = await Project.create({
