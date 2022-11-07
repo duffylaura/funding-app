@@ -1,0 +1,16 @@
+{{each ProjectData as |project|}}
+<div class="card">
+    <div class="card-content">
+        <h2> {{project.name}} </h2>
+        <p> {{project.description}}</p>
+        <p> {{needed_funding}}</p>
+    </div>
+    <div>
+        <button class="button is-link">Submit</button>
+    </div>
+    <div>
+        <button class="button is-link is-light">Cancel</button>
+    </div>
+
+</div>
+{{/each}}
